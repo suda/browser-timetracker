@@ -59,13 +59,13 @@ function addLocalDisplay() {
    var site = sortedSites[index][0];
    row = document.createElement("tr");
    cell = document.createElement("td");
-   var removeImage = document.createElement("img");
-   removeImage.src = chrome.extension.getURL("images/remove.png");
+   var removeImage = document.createElement("span");
+   removeImage.className = "glyphicon glyphicon-ban-circle";
    removeImage.title = "Remove and stop tracking.";
    removeImage.width = 10;
    removeImage.height = 10;
    removeImage.onclick = addIgnoredSite(site);
-   cell.appendChild(removeImage);
+   // cell.appendChild(removeImage);
    cell.appendChild(document.createTextNode(site));
    row.appendChild(cell);
    cell = document.createElement("td");

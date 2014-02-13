@@ -1,5 +1,6 @@
 <html>
   <head><title>Time Tracker Preferences</title></head>
+  <link rel="stylesheet" href="style.css"></link>
   <script type="text/javascript">
 
     function saveIdle() {
@@ -90,24 +91,52 @@
   </script>
 
   <body onload="restoreOptions()">
-    <input type="checkbox" id="idle_check" onclick="saveIdle()"><b>Idle Detection</b>: When enabled, time
-    tracker attempts to detect if you are actively using the browser or not and
-    will pause and resume automatically. If disabled, you must pause and resume
-    the timer yourself.
-    <br/>
-    <b>Manage Ignored Sites</b>: <br/>
-    <input type="text" id="new_ignored_site"></input>
-    <button onclick="addIgnoredSite()">Add</button><br/>
-    <select id="ignored_sites" MULTIPLE size="10">
-    </select><br/>
-    <button onclick="removeIgnoredSites()">Remove Selected</button>
-    <br/>
-    <b>Clear Statistics Every:</b>:
-    <select id="clear_stats_interval" onchange="updateClearStatsInterval()">
-      <option value="0">never</option>
-      <option value="3600">Hour</option>
-      <option value="86400">Day</option>
-    </select>
+    <div class="container">
+      <h1>Time Tracker Preferences</h1>
+      <h3>Idle Detection</h3>
+      <form role="form">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="idle_check" onclick="saveIdle()"> When enabled, time
+            tracker attempts to detect if you are actively using the browser or not and
+            will pause and resume automatically.<br />If disabled, you must pause and resume
+            the timer yourself.
+          </label>
+        </div>
+      </form> 
+
+      <h3>Manage Ignored Sites</h3>
+      <form role="form">
+        <div class="row form-group">
+          <div class="col-lg-4">
+            <input type="text" class="form-control" id="new_ignored_site"></input>
+          </div>
+          <div class="col-lg-1">
+            <button onclick="addIgnoredSite()" class="btn btn-success">Add</button>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-lg-4">
+            <select id="ignored_sites" MULTIPLE size="10" class="form-control"></select>
+          </div>
+          <div class="col-lg-1">
+            <button onclick="removeIgnoredSites()" class="btn btn-danger">Remove Selected</button>
+          </div>
+        </div>
+
+        <h3>Clear Statistics</h3>
+        <div class="row form-group">
+          <div class="col-lg-1">
+            <select id="clear_stats_interval" onchange="updateClearStatsInterval()" class="form-control">
+              <option value="0">never</option>
+              <option value="3600">Every hour</option>
+              <option value="86400">Every day</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
   </body>
 
   </body>
